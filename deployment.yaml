@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodejs-basic-app
+  
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nodeapp
+      environment: dev
+  template:
+    metadata:
+      labels: 
+        app: nodeapp
+        environment: dev
+    spec:
+      containers:
+        - name: node-container
+          image: harshvaghanii/node-app
+
